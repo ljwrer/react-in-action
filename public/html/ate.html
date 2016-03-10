@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="/public/js/react.js"></script>
+    <script src="/public/js/react-dom.js"></script>
+    <script src="/public/js/react-atellier.min.js"></script>
+    <script src="/public/js/browser.min.js"></script>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/babel">
+    var CompA=React.createClass({
+        render:function(){
+            return (<div>hello</div>)
+        }
+    });
+    var componentList=[
+        {
+            componentName : CompA.displayName,
+            component : CompA
+        }
+    ];
+    ReactDOM.render(React.createElement(ReactAtellier(React), {
+        components: componentList
+    }), document.getElementById('container'));
+</script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+{
+  "name": "react",
+  "description": "",
+  "main": "",
+  "authors": [
+    "ljwrer <ljwrer@sina.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "node"
+  ],
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^2.2.1"
+  }
+}
