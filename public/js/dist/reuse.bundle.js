@@ -46,85 +46,46 @@
 
 	"use strict";
 
-	/**
-	 * Created by Ray on 2016/3/10.
-	 */
 	var React = __webpack_require__(1);
 	var ReactDOM = __webpack_require__(158);
-	var LikeButton = React.createClass({
-	    displayName: "LikeButton",
+	var CheckLink = React.createClass({
+	    displayName: "CheckLink",
 
-	    getInitialState: function getInitialState() {
-	        return { liked: false };
-	    },
-	    handleClick: function handleClick(event) {
-	        this.setState({ liked: !this.state.liked });
+	    propTypes: {
+	        "data-mine": React.PropTypes.string.isRequired,
+	        children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
 	    },
 	    render: function render() {
-	        var text = this.state.liked ? 'like' : 'haven\'t liked';
-	        return React.createElement(
-	            "p",
-	            { onClick: this.handleClick },
-	            "You ",
-	            text,
-	            " this. Click to toggle.",
-	            React.createElement(
-	                "span",
-	                null,
-	                this.props.children
-	            )
-	        );
-	    },
-	    componentDidMount: function componentDidMount() {
-	        React.Children.forEach(this.props.children, function (item) {
-	            alert(item.props.pagename);
-	        });
-	    }
-	});
-	var Avatar = React.createClass({
-	    displayName: "Avatar",
-
-	    render: function render() {
-	        return React.createElement(
-	            "div",
-	            null,
-	            React.createElement(PagePic, { pagename: this.props.pagename }),
-	            React.createElement(PageLink, { pagename: this.props.pagename }),
-	            React.createElement(
-	                LikeButton,
-	                null,
-	                React.createElement(PageLink, { pagename: this.props.pagename })
-	            )
-	        );
-	    }
-	});
-
-	var PagePic = React.createClass({
-	    displayName: "PagePic",
-
-	    render: function render() {
-	        return React.createElement("img", { src: 'https://graph.facebook.com/' + this.props.pagename + '/picture' });
-	    }
-	});
-
-	var PageLink = React.createClass({
-	    displayName: "PageLink",
-
-	    render: function render() {
+	        // This takes any props passed to CheckLink and copies them to <a>
 	        return React.createElement(
 	            "a",
-	            { href: 'https://www.facebook.com/' + this.props.pagename },
-	            this.props.pagename
+	            this.props,
+	            '√ ',
+	            React.Children.map(this.props.children, function (child) {
+	                return React.createElement(
+	                    "li",
+	                    null,
+	                    child
+	                );
+	            })
 	        );
 	    }
 	});
 
-	ReactDOM.render(React.createElement(Avatar, { pagename: "Engineering" }), document.getElementById('example'));
-
-	//ReactDOM.render(
-	//    <LikeButton />,
-	//    document.getElementById('example')
-	//);
+	ReactDOM.render(React.createElement(
+	    CheckLink,
+	    { href: "/checked.html", "data-mine": "hello" },
+	    React.createElement(
+	        "span",
+	        null,
+	        "hello"
+	    ),
+	    React.createElement(
+	        "span",
+	        null,
+	        "world"
+	    )
+	), document.getElementById('example'));
 
 /***/ },
 /* 1 */

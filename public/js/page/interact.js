@@ -15,8 +15,14 @@ var LikeButton = React.createClass({
         return (
             <p onClick={this.handleClick}>
                 You {text} this. Click to toggle.
+                <span>{this.props.children}</span>
             </p>
         );
+    },
+    componentDidMount:function(){
+        React.Children.forEach(this.props.children,function(item){
+           alert(item.props.pagename)
+        });
     }
 });
 var Avatar = React.createClass({
@@ -25,7 +31,7 @@ var Avatar = React.createClass({
             <div>
                 <PagePic pagename={this.props.pagename} />
                 <PageLink pagename={this.props.pagename} />
-                <LikeButton/>
+                <LikeButton><PageLink pagename={this.props.pagename} /></LikeButton>
             </div>
         );
     }
@@ -53,8 +59,3 @@ ReactDOM.render(
     <Avatar pagename="Engineering" />,
     document.getElementById('example')
 );
-
-//ReactDOM.render(
-//    <LikeButton />,
-//    document.getElementById('example')
-//);

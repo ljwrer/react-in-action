@@ -2,7 +2,7 @@ var path = require("path");
 var webpack = require("webpack");
 var static=path.join(__dirname,"/public/js");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var entry="./js/page/interact.js";
+var entry="./js/page/reuse.js";
 module.exports = {
     context: path.join(__dirname,"public"),
     entry: entry,
