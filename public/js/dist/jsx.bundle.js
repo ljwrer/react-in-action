@@ -54,8 +54,29 @@
 	//var root = React.DOM.ul({ className: 'my-list' },
 	//    React.DOM.li(null, 'Text Content')
 	//);
-	ReactDOM.render(root, document.getElementById('container'));
-	ReactDOM.render(React.createElement(HelloWorld, { date: new Date() }), document.getElementById("container"));
+	var BooleanComp = React.createClass({
+	    displayName: "BooleanComp",
+
+	    render: function render() {
+	        return React.createElement("input", { type: "button", disabled: false });
+	    }
+	});
+
+	ReactDOM.render(React.createElement(
+	    "div",
+	    null,
+	    React.createElement(BooleanComp, null),
+	    React.createElement(
+	        "div",
+	        null,
+	        "First · Second"
+	    ),
+	    root
+	), document.getElementById('container'));
+	// ReactDOM.render(
+	//     <HelloWorld date={new Date()}/>
+	//     , document.getElementById("container")
+	// );
 
 /***/ },
 /* 1 */,

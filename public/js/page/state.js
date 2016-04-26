@@ -49,7 +49,7 @@ var ProductTableList = React.createClass({
             }
             categoryList[category].push(product);
         });
-        console.log(categoryList)
+        console.log(categoryList);
         for (let category in categoryList){
             if(categoryList.hasOwnProperty(category)){
                 rows.push(

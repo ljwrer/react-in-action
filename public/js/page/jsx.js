@@ -6,9 +6,19 @@ var root = Factory({ date: new Date() });
 //var root = React.DOM.ul({ className: 'my-list' },
 //    React.DOM.li(null, 'Text Content')
 //);
-ReactDOM.render(root, document.getElementById('container'));
-ReactDOM.render(
-    (<HelloWorld date={new Date()}></HelloWorld>
-    ),
-    document.getElementById("container")
-);
+var BooleanComp=React.createClass({
+    render:function () {
+        return <input type="button" disabled={false} />
+    }
+})
+
+
+
+ReactDOM.render(<div>
+    <BooleanComp/>
+    <div>First &middot; Second</div>
+    {root}</div>, document.getElementById('container'));
+// ReactDOM.render(
+//     <HelloWorld date={new Date()}/>
+//     , document.getElementById("container")
+// );

@@ -21,7 +21,8 @@ var LikeButton = React.createClass({
     },
     componentDidMount:function(){
         React.Children.forEach(this.props.children,function(item){
-           alert(item.props.pagename)
+           console.log("......LikeButton did mount......")
+            console.log(item.props.pagename)
         });
     }
 });
