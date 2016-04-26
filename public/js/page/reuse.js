@@ -18,5 +18,5 @@ ReactDOM.render(
         <span>hello</span>
         <span>world</span>
     </CheckLink>,
-    document.getElementById('example')
+    document.getElementById('container')
 );

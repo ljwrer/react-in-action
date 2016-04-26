@@ -52,7 +52,7 @@ app.get('/:name', function(req, res) {
 });
 app.get('/s/:name', function(req, res) {
   var name=req.params.name;
-  res.render("example",{name:name});
+  res.render("container",{name:name});
 });
 
 

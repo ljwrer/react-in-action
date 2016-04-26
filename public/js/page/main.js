@@ -15,5 +15,5 @@ var data = [
 //);
 ReactDOM.render(
     <CommentBox url="/api/comments" pollInterval={2000}/>,
-    document.getElementById('example')
+    document.getElementById('container')
 );

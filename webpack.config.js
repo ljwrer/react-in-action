@@ -1,18 +1,26 @@
 var path = require("path");
 var webpack = require("webpack");
-var static=path.join(__dirname,"/public/js");
+// var static=path.join(__dirname,"/public/js");
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
-var entry="./js/page/reuse.js";
+// var entry="./js/page/reuse.js";
 module.exports = {
-    context: path.join(__dirname,"public"),
-    entry: entry,
+    context: path.join(__dirname,"public/js/page"),
+    entry: {
+        entry:"entry",
+        interact:"interact",
+        jsx:"jsx",
+        main:"main",
+        reuse:"reuse",
+        state:"state"
+    },
     output: {
         path: "./public/js/dist",
         publicPath: "/public/js/dist",
-        filename: /\/([^\/]+)\.js$/.exec(entry)[1]+".bundle.js"
+        filename: "[name].bundle.js"
     },
     resolve: {
-        root: [path.join(__dirname, "bower_components")],
+        // root: [path.join(__dirname, "bower_components")],
+        root: [path.join(__dirname,"public/js"),path.join(__dirname, "bower_components"),path.join(__dirname, "public/js/page")],
         extensions: ['', '.js', '.jsx'],
         alias:{
             module:"./../module"
