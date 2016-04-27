@@ -44,39 +44,27 @@
 /* 0 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
-	var React = __webpack_require__(155);
-	var ReactDOM = __webpack_require__(8);
-	var HelloWorld = __webpack_require__(167);
-	var Factory = React.createFactory(HelloWorld);
-	var root = Factory({ date: new Date() });
-	//var root = React.DOM.ul({ className: 'my-list' },
-	//    React.DOM.li(null, 'Text Content')
-	//);
-	var BooleanComp = React.createClass({
-	    displayName: "BooleanComp",
+	var _react = __webpack_require__(155);
 
-	    render: function render() {
-	        return React.createElement("input", { type: "button", disabled: false });
-	    }
-	});
+	var _react2 = _interopRequireDefault(_react);
 
-	ReactDOM.render(React.createElement(
-	    "div",
-	    null,
-	    React.createElement(BooleanComp, null),
-	    React.createElement(
-	        "div",
-	        null,
-	        "First · Second"
-	    ),
-	    root
-	), document.getElementById('container'));
-	// ReactDOM.render(
-	//     <HelloWorld date={new Date()}/>
-	//     , document.getElementById("container")
-	// );
+	var _reactDom = __webpack_require__(8);
+
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+
+	var _Counter = __webpack_require__(154);
+
+	var _Counter2 = _interopRequireDefault(_Counter);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	console.log(_Counter2.default); /**
+	                                 * Created by Ray on 2016/4/27.
+	                                 */
+
+	_reactDom2.default.render(_react2.default.createElement(_Counter2.default, null), document.getElementById("container"));
 
 /***/ },
 /* 1 */,
@@ -18694,7 +18682,77 @@
 	module.exports = ReactMount.renderSubtreeIntoContainer;
 
 /***/ },
-/* 154 */,
+/* 154 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+
+	Object.defineProperty(exports, "__esModule", {
+	    value: true
+	});
+	exports.Counter = undefined;
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(155);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; } /**
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * Created by Ray on 2016/4/27.
+	                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                */
+
+
+	var Counter = exports.Counter = function (_React$Component) {
+	    _inherits(Counter, _React$Component);
+
+	    function Counter(props) {
+	        _classCallCheck(this, Counter);
+
+	        var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(Counter).call(this, props));
+
+	        _this.state = {
+	            counter: props.initialCounter
+	        };
+	        return _this;
+	    }
+
+	    _createClass(Counter, [{
+	        key: 'tick',
+	        value: function tick() {
+	            this.setState({
+	                counter: this.state.counter + 1
+	            });
+	        }
+	    }, {
+	        key: 'render',
+	        value: function render() {
+	            return _react2.default.createElement(
+	                'div',
+	                { onClick: this.tick },
+	                'Clicks:',
+	                this.state.counter
+	            );
+	        }
+	    }]);
+
+	    return Counter;
+	}(_react2.default.Component);
+
+	Counter.propTypes = {
+	    initialCounter: _react2.default.PropTypes.number
+	};
+	Counter.defaultProps = {
+	    initialCounter: 0
+	};
+
+/***/ },
 /* 155 */
 /***/ function(module, exports, __webpack_require__) {
 
@@ -19686,29 +19744,6 @@
 
 	module.exports = deprecated;
 	/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(10)))
-
-/***/ },
-/* 167 */
-/***/ function(module, exports, __webpack_require__) {
-
-	"use strict";
-
-	var React = __webpack_require__(155);
-	var HelloWolrd = React.createClass({
-	    displayName: "HelloWolrd",
-
-	    render: function render() {
-	        return React.createElement(
-	            "p",
-	            null,
-	            "Hello, ",
-	            React.createElement("input", { type: "text", placeholder: "Your name here" }),
-	            "! It is ",
-	            this.props.date.toTimeString()
-	        );
-	    }
-	});
-	module.exports = HelloWolrd;
 
 /***/ }
 /******/ ]);

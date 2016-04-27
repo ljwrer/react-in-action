@@ -12,7 +12,8 @@ module.exports = {
         main:"main",
         reuse:"reuse",
         state:"state",
-        mixin:"mixin"
+        mixin:"mixin",
+        es6:"es6"
     },
     output: {
         path: "./public/js/dist",
