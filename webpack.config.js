@@ -11,7 +11,8 @@ module.exports = {
         jsx:"jsx",
         main:"main",
         reuse:"reuse",
-        state:"state"
+        state:"state",
+        mixin:"mixin"
     },
     output: {
         path: "./public/js/dist",

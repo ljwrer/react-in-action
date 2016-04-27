@@ -46,74 +46,59 @@
 
 	"use strict";
 
+	/**
+	 * Created by Ray on 2016/4/27.
+	 */
 	var React = __webpack_require__(8);
 	var ReactDOM = __webpack_require__(165);
-	var CheckLink = React.createClass({
-	    displayName: "CheckLink",
-
-	    propTypes: {
-	        "data-mine": React.PropTypes.string.isRequired,
-	        children: React.PropTypes.arrayOf(React.PropTypes.element).isRequired
+	var setIntervalMixin = {
+	    componentWillMount: function componentWillMount() {
+	        this.intervalIds = [];
 	    },
-	    getDefaultProps: function getDefaultProps() {
+	    setInterval: function (_setInterval) {
+	        function setInterval() {
+	            return _setInterval.apply(this, arguments);
+	        }
+
+	        setInterval.toString = function () {
+	            return _setInterval.toString();
+	        };
+
+	        return setInterval;
+	    }(function () {
+	        this.intervalIds.push(setInterval.apply(null, arguments));
+	    }),
+	    componentWillUnmount: function componentWillUnmount() {
+	        this.intervalIds.forEach(clearInterval);
+	    }
+	};
+	var TikTok = React.createClass({
+	    displayName: "TikTok",
+
+	    mixins: [setIntervalMixin],
+	    getInitialState: function getInitialState() {
 	        return {
-	            "data-mine": "default data-mine",
-	            children: [React.createElement(
-	                "span",
-	                null,
-	                "default element"
-	            )],
-	            href: "/"
+	            seconds: 0
 	        };
 	    },
-	    render: function render() {
-	        // This takes any props passed to CheckLink and copies them to <a>
-	        return React.createElement(
-	            "a",
-	            this.props,
-	            '√ ',
-	            React.Children.map(this.props.children, function (child) {
-	                return React.createElement(
-	                    "li",
-	                    null,
-	                    child
-	                );
-	            })
-	        );
-	    }
-	});
-	var Container = React.createClass({
-	    displayName: "Container",
+	    componentDidMount: function componentDidMount() {
+	        var _this = this;
 
+	        this.setInterval(function () {
+	            _this.setState({
+	                seconds: _this.state.seconds + 1
+	            });
+	        }, 1);
+	    },
 	    render: function render() {
 	        return React.createElement(
-	            "div",
+	            "p",
 	            null,
-	            React.createElement(
-	                CheckLink,
-	                { href: "/checked.html", "data-mine": "hello" },
-	                React.createElement(
-	                    "span",
-	                    null,
-	                    "hello"
-	                ),
-	                React.createElement(
-	                    "span",
-	                    null,
-	                    "world"
-	                )
-	            ),
-	            React.createElement(CheckLink, null)
+	            this.state.seconds
 	        );
 	    }
 	});
-
-	ReactDOM.render(
-	/*<CheckLink href="/checked.html" data-mine="hello">
-	    <span>hello</span>
-	    <span>world</span>
-	</CheckLink>,*/
-	React.createElement(Container, null), document.getElementById('container'));
+	ReactDOM.render(React.createElement(TikTok, null), document.getElementById("container"));
 
 /***/ },
 /* 1 */,
