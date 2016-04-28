@@ -3,6 +3,11 @@
  */
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Counter from "module/es6/Counter";
-console.log(Counter)
-ReactDOM.render(<Counter/>,document.getElementById("container"));
+import {Counter} from "module/es6/Counter";
+import {StateLess} from "module/es6/stateless";
+ReactDOM.render(
+    <div>
+        <Counter/>
+        <StateLess name="Ray"/>
+    </div>
+    ,document.getElementById("container"));
