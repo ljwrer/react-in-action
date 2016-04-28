@@ -19730,7 +19730,6 @@
 	            this.setState({
 	                counter: this.state.counter + 1
 	            });
-	            console.log(this.refs.state.name);
 	        }
 	    }, {
 	        key: "render",
@@ -19738,7 +19737,7 @@
 	            return _react2.default.createElement(
 	                "div",
 	                { onClick: this.tick },
-	                _react2.default.createElement(_stateless.StateLess, { ref: "state", name: "Ray" }),
+	                _react2.default.createElement(_stateless.StateLess, { name: "Ray" }),
 	                "Clicks:",
 	                this.state.counter
 	            );
