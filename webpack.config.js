@@ -13,7 +13,9 @@ module.exports = {
         reuse:"reuse",
         state:"state",
         mixin:"mixin",
-        es6:"es6"
+        es6:"es6",
+        props:"props",
+        form:"form"
     },
     output: {
         path: "./public/js/dist",
@@ -45,7 +47,7 @@ module.exports = {
                 exclude: /node_modules/,
                 loader: 'babel-loader',
                 query: {
-                    presets: ['react', 'es2015'],
+                    presets: ['react', 'es2015',"stage-0"],
                     compact:false
                 }
             },
