@@ -15,7 +15,8 @@ module.exports = {
         mixin:"mixin",
         es6:"es6",
         props:"props",
-        form:"form"
+        form:"form",
+        ref:"ref"
     },
     output: {
         path: "./public/js/dist",
